@@ -1,0 +1,18 @@
+<!doctype HTML>
+<html >
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/client.js"></script>
+<title>Jono</title>
+</head>
+<body ng-app="ioc" >
+<div ng-controller="ioctrl">
+	<div ng-click="popfirst()" style="font-size:72px;">
+		<div>Jonoa: {{qsize}}</div>
+		<div>Rivi: {{que[0].row}}</div>
+		<div>Nimi: {{que[0].name}}</div>
+	</div>
+</div>
+</body>
+</html>
