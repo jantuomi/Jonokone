@@ -1,6 +1,7 @@
 <!doctype HTML>
 <html >
 <head>
+<link rel="stylesheet" type="text/css" href="/f/styles/style.css">
 <script src="f/scripts/angular/angular.min.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script src="/f/scripts/client.js"></script>
@@ -8,11 +9,11 @@
 </head>
 <body ng-app="ioc" >
 <div ng-controller="ioctrl">
-	<div ng-click="popfirst()" class="adminscreen">
-		<div>Jonoa: {{qsize}}</div>
-		<div>Rivi: {{que[0].row}}</div>
-		<div>Nimi: {{que[0].name}}</div>
-	</div>
+	<table ng-click="popfirst()" id="adminscreen">
+		<tr><td> Jonoa:</td><td> {{qsize}}</td></tr>
+		<tr><td>Nimi: </td><td> {{que[0].name}}</td></tr>
+		<tr><td>Rivi: </td><td> {{que[0].row}}</td></tr>
+	</table>
 </div>
 </body>
 </html>

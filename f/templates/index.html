@@ -23,12 +23,13 @@
     <option value="9">9</option>
     <option value="10">10</option>
     </select></td></tr>
-	<tr><td> Nimi:</td> <td><input type="text" ng-model="name"></input></td></tr>
+	<tr><td> Nimi</td> <td><input type="text" ng-model="name"></input></td></tr>
     <tr><td></td><td> <button id="addbutton" ng-click="submit();">Lisää</button></td></tr>
 </table>
 <table id="que">
+<tr><th>Rivi</th><th>Nimi</th></tr>
 <tr ng-repeat="person in que">
-	<td >Rivi {{person.row}}:</td>
+	<td >Rivi {{person.row}}</td>
 	<td >{{person.name}}</td>
 </tr>
 </table>
