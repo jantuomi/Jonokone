@@ -5,14 +5,17 @@ var io = require('socket.io')(http);
 var que = []
 
 app.get('/', function(req, res){
-  res.sendFile(__dirname + '/index.html');
-});
-app.get('/client.js', function(req, res){
-  res.sendFile(__dirname + '/client.js');
+  res.sendFile(__dirname + '/f/templates/index.html');
 });
 app.get('/adm', function(req, res){
-  res.sendFile(__dirname + '/adm.html');
+  res.sendFile(__dirname + '/f/templates/adm.html');
 });
+
+//route all paths beginning with /f/ to real files 
+app.get('/f/*', function(req, res){
+  res.sendFile(__dirname + req.path);
+});
+
 
 io.on('connection', function(socket){
   socket.emit("quedata",que);
@@ -27,6 +30,7 @@ io.on('connection', function(socket){
   	que.shift();
 		io.emit("quedata",que);
   });
+
 
 
 });
