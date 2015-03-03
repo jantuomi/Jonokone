@@ -1,0 +1,29 @@
+body{
+    background-color:black;
+    color:white;
+    width:600px;
+}
+#container_main{
+    font-size:24px;
+	width:200px;
+    margin-top:40px;
+	margin-left:auto;
+	margin-right:auto;
+}
+td:first-child{
+    text-align:right;
+}
+#que td{
+   padding-left:20px;
+}
+#que{
+margin-top:50px;
+}
+#addform{
+
+}
+#addbutton{
+    width:60px;
+    margin-left:auto;
+    margin-right:auto;
+}

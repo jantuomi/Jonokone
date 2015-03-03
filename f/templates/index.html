@@ -1,21 +1,34 @@
 <!doctype HTML>
 <html >
-<head>
+<head> 
+<link rel="stylesheet" type="text/css" href="/f/styles/style.css">
 <script src="/f/scripts/angular/angular.min.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script src="/f/scripts/client.js"></script>
+<meta charset="utf8">
 <title>Jono</title>
 </head>
 <body ng-app="ioc" >
-<div ng-controller="ioctrl" class="que">
-<table>
-	<tr><td>Rivi: </td><td> <input type="text" ng-model="row"></input></td></tr>
+<div ng-controller="ioctrl" id="container_main">
+<table id="addform">
+	<tr><td>Rivi: </td><td> <select ng-model="row">
+    <option value="1" selected="selected">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+    </select></td></tr>
 	<tr><td> Nimi:</td> <td><input type="text" ng-model="name"></input></td></tr>
-<button ng-click="submit();">Add</button>
+    <tr><td></td><td> <button id="addbutton" ng-click="submit();">Lisää</button></td></tr>
 </table>
-<table>
+<table id="que">
 <tr ng-repeat="person in que">
-	<td >{{person.row}}</td>
+	<td >Rivi {{person.row}}:</td>
 	<td >{{person.name}}</td>
 </tr>
 </table>
