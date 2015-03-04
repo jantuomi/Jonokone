@@ -27,10 +27,12 @@
     <tr><td></td><td> <button id="addbutton" ng-click="submit();">Lisää</button></td></tr>
 </table>
 <table id="que">
-<tr><th>Rivi</th><th>Nimi</th></tr>
+<tr><th>Rivi</th><th>Nimi</th><th>Poista</th></tr>
 <tr ng-repeat="person in que">
 	<td >Rivi {{person.row}}</td>
 	<td >{{person.name}}</td>
+    <td ng-if="person.uid == uid" ng-click="querm(person.qid);"><img src="/f/images/delete.jpg"></td>
+     <td ng-if="person.uid != uid"></td>
 </tr>
 </table>
 </div>

@@ -4,7 +4,7 @@ body{
 }
 #container_main{
     font-size:24px;
-	width:200px;
+	width:400px;
     margin-top:40px;
 	margin-left:auto;
 	margin-right:auto;
@@ -25,6 +25,9 @@ td:first-child{
 }
 #que tr:nth-child(2){
     background-color:darkgreen;
+}
+#que td:nth-child(3){
+    text-align: center;
 }
 #addform{
     
