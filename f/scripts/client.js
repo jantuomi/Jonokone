@@ -9,6 +9,7 @@ ioc.controller('ioctrl',function($scope){
 	$scope.row="";
 	$scope.name="";
 	$scope.qsize=0;
+    $scope.outdated = true;
 	
 	$scope.submit = function(){
 		soc.emit("queadd",{"row":$scope.row,"name":$scope.name,"uid":$scope.uid});
@@ -19,6 +20,7 @@ ioc.controller('ioctrl',function($scope){
 	soc.on("quedata",function(data){
 		$scope.que=data;
 		$scope.qsize=data.length;
+        $scope.outdated = false;
 		$scope.$apply();
 	});
 
@@ -27,11 +29,16 @@ ioc.controller('ioctrl',function($scope){
 		pw= data.pw;
 	});
 
+	soc.on("disconnect",function(data){
+		setTimeout(function(){console.log("blblbl");$scope.uid = data.uid;pw= data.pw;$scope.$apply();},1000)
+	});
+
 	soc.on("err",function(err){
 		console.log("error! msg: "+err.msg);
 	});
 
 	$scope.popfirst = function(){
+        $scope.outdated = true;
 		soc.emit("quepopfirst","");	
 	};
 	$scope.querm = function(qid){

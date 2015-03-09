@@ -29,15 +29,15 @@ io.on('connection', function(socket){
   
    
   socket.on("queadd",function(data){
-		console.log("adding new que entry with user :" );
+		log("adding new que entry with user: " +data.name+ " , row " +data.row);
     data.qid= Date.now();
 
   	que.push(data);
 		io.emit("quedata",que);
   });
 	socket.on("quepopfirst",function(data){
-		console.log("deleting first from que");
-  	que.shift();
+  	    var deleted = que.shift();
+        log("admin deleted "+ deleted.name +" from que");
 		io.emit("quedata",que);
 
   });
@@ -48,7 +48,7 @@ io.on('connection', function(socket){
           socket.emit("err",{"msg":"you're not allowed to remove this entry"});
           break;
         }
-        console.log("deleting: "+ que[i].name);
+        log(que[i].name+" deleted himself from que");
         que.splice(i,1);
         io.emit("quedata",que);
         break;
@@ -58,6 +58,15 @@ io.on('connection', function(socket){
 
 });
 
-http.listen(3000, function(){
-  console.log('listening on *:3000');
+function getTimeString()
+{
+    return Date().toLocaleString();
+}
+
+function log(msg){
+    console.log(getTimeString()+": "+msg);
+}
+
+http.listen(80, function(){
+  log('listening on *:80');
 });

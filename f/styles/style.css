@@ -39,7 +39,6 @@ td:first-child{
 }
 #adminscreen{
     border:3px solid #202020;
-    background-color:darkgreen;
     font-size:72px;
     width:400px;
     margin-left:auto;
@@ -50,4 +49,10 @@ td:first-child{
 }
 #adminscreen td {
     padding-left:10px;
+}
+.outdated{
+background-color:darkred;
+}
+.updated{
+background-color:darkgreen;
 }
