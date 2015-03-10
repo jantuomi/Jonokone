@@ -1,6 +1,12 @@
 var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
+var port = 1337;
+
+//get port from commandline parameteres
+if (process.argv.length== 3){
+  port = process.argv[2];
+}
 
 var que = [];
 var pws = {};
@@ -66,7 +72,7 @@ function getTimeString()
 function log(msg){
     console.log(getTimeString()+": "+msg);
 }
-
-http.listen(80, function(){
-  log('listening on *:80');
+log(port);
+http.listen(port, function(){
+  log('listening on port '+port);
 });
