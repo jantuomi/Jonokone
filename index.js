@@ -2,7 +2,7 @@ var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var port = 1337;
-
+var LOGBROADCAST = true;
 //get port from commandline parameteres
 if (process.argv.length== 3){
   port = process.argv[2];
@@ -17,6 +17,10 @@ app.get('/', function(req, res){
 app.get('/adm', function(req, res){
   res.sendFile(__dirname + '/f/templates/adm.html');
 });
+app.get('/log', function(req, res){
+  res.sendFile(__dirname + '/f/templates/log.html');
+});
+
 
 //route all paths beginning with /f/ to real files 
 app.get('/f/*', function(req, res){
@@ -32,7 +36,10 @@ io.on('connection', function(socket){
 
   socket.emit("userinfo",{"uid":uid,"pw":pw});
   socket.emit("quedata",que);
-  
+  socket.on("logsubscribe",function(data){
+    log("User "+data.uid+ " has subscribed in logging");
+    socket.join("log");
+  });  
    
   socket.on("queadd",function(data){
 		log("User " +data.name+ " on row " +data.row+" added to queue");
@@ -70,7 +77,11 @@ function getTimeString()
 }
 
 function log(msg){
-    console.log(getTimeString()+": "+msg);
+    var logmsg=getTimeString()+": "+msg;
+    console.log(logmsg);
+    if(LOGBROADCAST){
+      io.to("log").emit("logmessage",logmsg);
+    }
 }
 http.listen(port, function(){
   log('listening on port '+port);
