@@ -3,7 +3,7 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var port = 1337;
 
-//get port from commandline parameteres
+//get port from commandline parameteres if supplied
 if (process.argv.length== 3){
   port = process.argv[2];
 }
