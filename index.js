@@ -1,7 +1,7 @@
 var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-var port = 1337;
+var port = (process.env.PORT || 5000);
 var LOGBROADCAST = true;
 //get port from commandline parameteres
 if (process.argv.length== 3){
