@@ -8,5 +8,5 @@ a simple quesystem implementation
 * express.js
 
 ##Usage
- * start with command nodejs index.js <port> (note that ports under 1000 will require sudo rights)
-* "admin" at path /adm
+ * start with command nodejs index.js port (note that ports under 1000 will require sudo rights)
+* "admin" at path /adm (can be used for example with phone to delete first from que)
