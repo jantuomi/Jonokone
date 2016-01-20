@@ -1,5 +1,5 @@
-#Que
-a simple quesystem implementation
+#Jonokone
+A simple queue system implementation based on [okalintu/Que](https://github.com/okalintu/Que).
 
 ##Dependencies
 * nodejs
@@ -7,6 +7,14 @@ a simple quesystem implementation
 * socket.io
 * express.js
 
+##Installation
+* Clone the repository
+* Install dependencies with ```npm install```
+* Run ```node index.js```
+* Open ```localhost:$PORT``` (default port: 5000)
+
 ##Usage
- * start with command nodejs index.js port (note that ports under 1000 will require sudo rights)
-* "admin" at path /adm (can be used for example with phone to delete first from que)
+* start with command ```node index.js``` (note that ports under 1000 will require sudo rights)
+* admin mode at ```$PATH/adm``` (can be used to remove the first person from the queue)
+ *   example: ```localhost:5000/adm```
+* logging at ```$PATH/log```
