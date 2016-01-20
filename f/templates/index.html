@@ -42,6 +42,10 @@
 
             <a href="#" class="addButton" ng-click="submit();">Lisää</a>
 
+            <div ng-if='error_message != ""' id="add-error">
+                {{error_message}}
+            </div>
+
             <div ng-repeat="person in que">
                 <div ng-if="person.uid == uid" ng-click="querm(person.qid);">
                     <a href="#" class="removeButton">Poista {{person.name}}</a>

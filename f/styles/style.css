@@ -15,6 +15,13 @@ body{
     font-style: italic;
 }
 
+#add-error {
+    margin-top: 10px;
+    color: #c0392b;
+    font-style: italic;
+    font-weight: 700;
+}
+
 .form-name {
     font-weight: 700;
 }
@@ -90,7 +97,7 @@ td {
     text-decoration:none;
 }
 .removeButton:hover {
-    background-color:#408c99;
+    background-color: #a53a2b;
 }
 .removeButton:active {
     position:relative;
