@@ -3,6 +3,7 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var port = (process.env.PORT || 5000);
 var LOGBROADCAST = true;
+
 //get port from commandline parameteres
 if (process.argv.length == 3) {
     port = process.argv[2];
@@ -12,19 +13,18 @@ var que = [];
 var pws = {};
 
 app.get('/', function(req, res) {
-    res.sendFile(__dirname + '/f/templates/index.html');
+    res.sendFile(__dirname + '/templates/index.html');
 });
 app.get('/adm', function(req, res) {
-    res.sendFile(__dirname + '/f/templates/adm.html');
+    res.sendFile(__dirname + '/templates/adm.html');
 });
 app.get('/log', function(req, res) {
-    res.sendFile(__dirname + '/f/templates/log.html');
+    res.sendFile(__dirname + '/templates/log.html');
 });
-
 
 //route all paths beginning with /f/ to real files 
 app.get('/f/*', function(req, res) {
-    res.sendFile(__dirname + req.path);
+    res.sendFile(__dirname + req.path.substring(2));
 });
 
 

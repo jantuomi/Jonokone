@@ -1,0 +1,28 @@
+<!doctype HTML>
+<html >
+	<head>
+		<link rel="stylesheet" type="text/css" href="/f/styles/style.css">
+		<script src="/f/node_modules/angular/angular.min.js"></script>
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="/f/scripts/client.js"></script>
+		<title>Jonokone Admin</title>
+	</head>
+	<body ng-app="ioc" >
+		<div ng-controller="ioctrl">
+			<table ng-click="popfirst()" ng-class="{outdated:outdated,updated:!outdated}" id="adminscreen">
+				<tr>
+					<td> Jonoa:</td>
+					<td> {{qsize}}</td>
+				</tr>
+				<tr>
+					<td>Nimi: </td>
+					<td> {{que[0].name}}</td>
+				</tr>
+				<tr>
+					<td>Rivi: </td>
+					<td> {{que[0].row}}</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>

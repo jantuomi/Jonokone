@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Jonokone Log</title>
+		<meta charset="utf-8">
+		<script src="/f/node_modules/angular/angular.min.js"></script>
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="/f/scripts/log.js"></script>
+	</head>
+	<body ng-app="logapp">
+		<div id="container" ng-controller="logctrl">
+			<p ng-repeat="msg in logmessages">{{msg}}</p>
+		</div>
+	</body>
+</html>
