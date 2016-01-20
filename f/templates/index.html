@@ -1,41 +1,64 @@
 <!doctype HTML>
 <html >
-<head> 
-<link rel="stylesheet" type="text/css" href="/f/styles/style.css">
-<script src="/f/scripts/angular/angular.min.js"></script>
-<script src="/socket.io/socket.io.js"></script>
-<script src="/f/scripts/client.js"></script>
-<meta charset="utf8">
-<title>Jonokone</title>
-</head>
-<body ng-app="ioc" >
-<div ng-controller="ioctrl" id="container_main">
-<H1>Jonokone @ jonokone.dy.fi </h1>
-<table id="addform">
-	<tr><td>Rivi: </td><td> <select ng-model="row">
-    <option value="1" selected="selected">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-    <option value="6">6</option>
-    <option value="7">7</option>
-    <option value="8">8</option>
-    <option value="9">9</option>
-    <option value="10">10</option>
-    </select></td></tr>
-	<tr><td> Nimi</td> <td><input type="text" ng-model="name"></input></td></tr>
-    <tr><td></td><td> <button id="addbutton" ng-click="submit();">Lisää</button></td></tr>
-</table>
-<table id="que">
-<tr><th>Rivi</th><th>Nimi</th><th>Poista</th></tr>
-<tr ng-repeat="person in que">
-	<td >Rivi {{person.row}}</td>
-	<td >{{person.name}}</td>
-    <td ng-if="person.uid == uid" ng-click="querm(person.qid);"><img src="/f/images/delete.jpg"></td>
-     <td ng-if="person.uid != uid"></td>
-</tr>
-</table>
-</div>
-</body>
+    <head>
+        <link href='https://fonts.googleapis.com/css?family=Lato:300italic,700,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="/f/styles/style.css">
+        <script src="/f/scripts/angular/angular.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="/f/scripts/client.js"></script>
+        <meta charset="utf8">
+        <title>Jonokone</title>
+    </head>
+    <body ng-app="ioc" >
+        <div ng-controller="ioctrl" id="container_main">
+            <div id="title">Jonokone</div>
+            <div id="subtitle">@ jonokone.dy.fi</div>
+            <br>
+            <table id="addform" class="centered-table">
+                <tr>
+                    <td class="form-name">Rivi: </td>
+                    <td class="form-input">
+                        <select ng-model="row">
+                            <option value="1" selected="selected">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="form-name">Nimi: </td>
+                    <td class="form-input">
+                        <input type="text" ng-model="name"></input>
+                    </td>
+                </tr>
+            </table>
+
+            <a href="#" class="addButton" ng-click="submit();">Lisää</a>
+
+            <div ng-repeat="person in que">
+                <div ng-if="person.uid == uid" ng-click="querm(person.qid);">
+                    <a href="#" class="removeButton">Poista {{person.name}}</a>
+                </div>
+            </div>
+
+            <table id="que" class="centered-table" ng-if="que.length > 0">
+                <tr>
+                    <th>Rivi</th>
+                    <th>Nimi</th>
+                </tr>
+                <tr ng-repeat="person in que">
+                    <td >Rivi {{person.row}}</td>
+                    <td >{{person.name}}</td>
+                </tr>
+            </table>
+            
+        </div>
+    </body>
 </html>
