@@ -47,8 +47,10 @@
             </div>
 
             <div ng-repeat="person in que">
-                <div ng-if="person.uid == uid" ng-click="querm(person.qid);">
-                    <a href="#" class="removeButton">Poista {{person.name}}</a>
+                <div ng-if="person.uid == uid">
+                    <a href="#" class="removeButton" ng-click="querm(person.qid);">
+                        Poista {{person.name}}
+                    </a>
                 </div>
             </div>
 
