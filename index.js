@@ -21,6 +21,9 @@ app.get('/adm', function(req, res) {
 app.get('/log', function(req, res) {
     res.sendFile(__dirname + '/templates/log.html');
 });
+app.get('/list', function(req, res) {
+    res.sendFile(__dirname + '/templates/list.html');
+});
 
 //route all paths beginning with /f/ to real files 
 app.get('/f/*', function(req, res) {
